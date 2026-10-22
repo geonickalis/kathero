@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KATHERO</title>
+<style>
+  html, body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: Verdana;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0;
+    box-sizing: border-box;
+  }
+  h1 {
+    margin: 0 0 0px;
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 6px;
+    color: #f0f0f0;
+  }
+  video {
+    height: 60vh;
+    aspect-ratio: 9 / 16;
+    max-width: 90vw;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+  }
+  video:hover {
+    opacity: 1;
+  }
+  nav {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  a {
+    color: #909090;
+    font-size:11px;
+    text-decoration: none;
+    font-weight: 100;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  .svgcolor {
+  fill: #909090;
+  }
+  .row {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  .side {
+    text-align: center;
+    padding: 0px 0px;
+  }
+  @media(max-width:900px){
+  .row {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
+  }
+
+</style>
+</head>
+<body>
+
+<img class="svgcolor" src="svg/logo.svg" width="100" height="100" ></img>
+
+<div class="row">
+  <h1 class="side">KATHERO</h1>
+  <a href="#">
+    <video src="videos/fightcanvas.mov" autoplay muted loop playsinline></video>
+  </a>
+  <h1 class="side">10.16.2026</h1>
+</div>
+
+<nav>
+  <a href="https://open.spotify.com/artist/3m5HTbYnpREIh9kdEcHlPf?si=u8VZgjKIQYGj9LJ4uxPHhw">SPOTIFY</a>
+  <a href="https://music.apple.com/us/artist/kathero/1523082821">APPLE MUSIC</a>
+  <a href="https://www.instagram.com/kathero_music/">INSTAGRAM</a>
+  <a href="https://www.tiktok.com/@kathero_music">TIKTOK</a>
+  <a href="https://www.youtube.com/@kathero8444">YOUTUBE</a>
+  <a href="https://soundcloud.com/user-587381472">SOUNDCLOUD</a>
+  <a href="mailto:katheromusic@gmail.com">INQUIRIES</a>
+</nav>
+
+</body>
+</html>
