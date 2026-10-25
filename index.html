@@ -24,14 +24,14 @@
   }
   h1 {
     margin: 0 0 0px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 100;
     letter-spacing: 6px;
     color: #f0f0f0;
     z-index: 5;
   }
   nav {
-    margin-top: 32px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 1px;
@@ -39,7 +39,7 @@
   }
   a {
     color: #f0f0f0;
-    font-size:11px;
+    font-size:12px;
     text-decoration: none;
     font-weight: 100;
     z-index: 5;
@@ -48,7 +48,7 @@
     text-decoration: underline;
   }
   .hero {
-    height: 50vh;
+    height: 40vh;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     display: block;
@@ -66,7 +66,7 @@
   .row {
     width: 80%;
     display: grid;
-    grid-template-columns: auto ;
+    grid-template-columns: auto;
     align-items: center;
     justify-content: center;
     z-index: 5;
@@ -77,16 +77,16 @@
     padding: 0px 0px;
     z-index: 5;
   }
-  .back {
-    position:fixed;
-    display:grid;
-    object-fit:cover;
-    grid-template-columns: auto auto;
-    justify-content: center;
-    align-items: center;
+  #grid {
+    position: fixed;
     z-index: 1;
-    filter: saturate(0%) contrast(100%) brightness(15%);
+    filter: saturate(0%) contrast(120%) brightness(20%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
+  canvas { width: auto; height: auto; display: block; }
+  canvas.flip { transform: scaleX(-1); }
+
   @media(max-width:900px){
   .row {
     grid-template-columns: auto;
@@ -98,18 +98,14 @@
     font-size:15px;
     }
   }
-
 </style>
 </head>
 <body>
 
-<section class="back">
-    
-    <video style="transform: rotateY(180deg);" src="videos/canvas.mov" autoplay muted loop playsinline></video>
-    <video src="videos/canvas.mov" autoplay muted loop playsinline></video>
-</section>
+<video id="src" src="videos/canvas.mov" autoplay muted loop playsinline style="position:fixed; opacity:0;"></video>
+<div id="grid"></div>
 
-<img class="svg" src="svg/logo.svg" width="30" height="30" ></img>
+<img class="svg" src="svg/logo.svg" width="32" height="32" ></img>
 
 <div class="row">
   <h1 class="side">KATHERO</h1>
@@ -127,8 +123,38 @@
   <a href="https://www.tiktok.com/@kathero_music">TIKTOK</a>
   <a href="https://www.youtube.com/@kathero8444">YOUTUBE</a>
   <a href="https://soundcloud.com/user-587381472">SOUNDCLOUD</a>
-  <a style="color:#909090; font-size: 9px; margin-top: 30px;" href="mailto:katheromusic@gmail.com"> &copy;2026 KATHERO</a>
+  <a style="color:#909090; font-size: 9px; margin-top: 40px;" href="mailto:katheromusic@gmail.com"> &copy;2026 KATHERO</a>
 </nav>
 
+<script>
+const video = document.getElementById('src');
+const grid = document.getElementById('grid');
+const COLS = 1, ROWS = 2;
+const ctxs = [];
+
+function setup() {
+  const w = video.videoWidth, h = video.videoHeight;
+  for (let i = 0; i < COLS * ROWS; i++) {
+    const c = document.createElement('canvas');
+    c.width = w;
+    c.height = h;
+    if (i % 2 === 1) c.classList.add('flip');
+    grid.appendChild(c);
+    ctxs.push(c.getContext('2d'));
+  }
+}
+
+function draw() {
+  for (const ctx of ctxs) ctx.drawImage(video, 0, 0);
+  if ('requestVideoFrameCallback' in video) {
+    video.requestVideoFrameCallback(draw);
+  } else {
+    requestAnimationFrame(draw);
+  }
+}
+
+video.addEventListener('loadedmetadata', setup);
+video.addEventListener('play', draw, { once: true });
+</script>
 </body>
 </html>
