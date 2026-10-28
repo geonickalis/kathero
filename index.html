@@ -6,11 +6,15 @@
 <title>Kathero - Official</title>
 <link rel="icon" type="image/svg+xml" href="svg/logo.svg">
 <style>
+  @font-face{
+  font-family: 'Montserrat-Medium';
+  src: url("fonts/Montserrat-Medium.ttf"); 
+  }
   html, body {
     margin: 0;
     background: #000;
     color: #fff;
-    font-family: Verdana;
+    font-family: Montserrat-Medium;
   }
   body {
     min-height: 100vh;
@@ -34,7 +38,7 @@
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 0px;
     z-index: 5;
   }
   a {
@@ -70,7 +74,7 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
-    gap: 10px;
+    gap: 32px;
   }
   .side {
     text-align: center;
@@ -80,7 +84,7 @@
   #grid {
     position: fixed;
     z-index: 1;
-    filter: saturate(0%) contrast(120%) brightness(20%);
+    filter: saturate(100%) contrast(120%) brightness(20%);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
@@ -111,9 +115,10 @@
   <h1 class="side">KATHERO</h1>
   <a href="#">
    <!-- <video class="hero" src="videos/fightcanvas.mov" autoplay muted loop playsinline></video> -->
-   <img class="hero" src="images/hero.jpg"></img>
+   <!-- <img class="hero" src="images/hero.jpg"></img> -->
+   <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3QAQenekwkCWMtAit476gI?utm_source=generator&theme=0&si=a2e9c6aabe5a4423" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </a>
-  <h1 class="side">10.16.2026</h1>
+   <!-- <h1 class="side">10.16.2026</h1> -->
 </div>
 
 <nav>
@@ -123,7 +128,7 @@
   <a href="https://www.tiktok.com/@kathero_music">TIKTOK</a>
   <a href="https://www.youtube.com/@kathero8444">YOUTUBE</a>
   <a href="https://soundcloud.com/user-587381472">SOUNDCLOUD</a>
-  <a style="color:#909090; font-size: 9px; margin-top: 40px;" href="mailto:katheromusic@gmail.com"> &copy;2026 KATHERO</a>
+  <a style="color:#909090; font-size: 10px; margin-top: 40px;" href="mailto:katheromusic@gmail.com"> &copy;2026 KATHERO</a>
 </nav>
 
 <script>
